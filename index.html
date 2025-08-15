@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Pulse - Modern News Reader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Loading overlay -->
+    <div class="loader" id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-newspaper"></i>
+                <span>NewsPulse</span>
+            </a>
+            
+            <div class="search-container">
+                <input type="text" id="search-text" placeholder="Search for news...">
+                <button id="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <div class="header-controls">
+                <button class="btn btn-primary" onclick="reload()">
+                    <i class="fas fa-sync-alt"></i>
+                    Reload
+                </button>
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container nav-container">
+            <div id="India" class="nav-item active" onclick="onNavItemClick('India')">India</div>
+            <div id="Technology" class="nav-item" onclick="onNavItemClick('Technology')">Technology</div>
+            <div id="Sports" class="nav-item" onclick="onNavItemClick('Sports')">Sports</div>
+            <div id="Business" class="nav-item" onclick="onNavItemClick('Business')">Business</div>
+            <div id="Entertainment" class="nav-item" onclick="onNavItemClick('Entertainment')">Entertainment</div>
+            <div id="Health" class="nav-item" onclick="onNavItemClick('Health')">Health</div>
+            <div id="Science" class="nav-item" onclick="onNavItemClick('Science')">Science</div>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <!-- Slider Section -->
+        <section class="slider-section">
+            <div class="section-header">
+                <h2 class="section-title">Top Stories</h2>
+            </div>
+            
+            <div class="slider-container">
+                <div class="slides" id="slides">
+                    <!-- Slides will be dynamically generated -->
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Breaking News">
+                        <div class="slide-overlay">
+                            <h3 class="slide-title">Global leaders gather for climate summit amid growing concerns</h3>
+                            <div class="slide-source">
+                                <i class="fas fa-newspaper"></i>
+                                <span>International News Network • 2 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slider-controls">
+                <div class="arrow left" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                
+                <div class="dots" id="dots-container">
+                    <!-- Dots will be dynamically generated -->
+                </div>
+                
+                <div class="arrow right" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </section>
+        
+        <!-- News Cards Section -->
+        <section class="cards-section">
+            <div class="section-header">
+                <h2 class="section-title">Latest News</h2>
+            </div>
+            
+            <div id="cards-container">
+                <!-- Cards will be dynamically generated -->
+                <div class="news-card">
+                    <div class="image-container">
+                        <img class="news-img" src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="News Image">
+                        <div class="category-badge">Technology</div>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">New smartphone with revolutionary camera technology announced</h3>
+                        <p class="news-desc">The latest flagship device features breakthrough camera capabilities and extended battery life, setting a new standard in mobile photography.</p>
+                        <div class="news-source">
+                            <span class="source-name">
+                                <i class="fas fa-globe"></i>
+                                Tech News Daily
+                            </span>
+                            <span>3 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container footer-content">
+            <p>© 2025 NewsPulse - Your trusted source for the latest news and updates from around the world.</p>
+            <p>Powered by NewsAPI.org</p>
+        </div>
+    </footer>
+
+    <template id="template-news-card">
+        <div class="news-card">
+            <div class="image-container">
+                <img id="news-img" class="news-img" src="" alt="News Image">
+                <div class="category-badge" id="news-category">General</div>
+            </div>
+            <div class="news-content">
+                <h3 id="news-title" class="news-title"></h3>
+                <p id="news-desc" class="news-desc"></p>
+                <div class="news-source">
+                    <span class="source-name">
+                        <i class="fas fa-globe"></i>
+                        <span id="news-source"></span>
+                    </span>
+                    <span id="news-date"></span>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="./script.js">
+       
+    </script>
+</body>
+</html>
